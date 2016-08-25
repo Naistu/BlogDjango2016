@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block sidebar %}
+{% load static %}
+{% load staticfiles %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" media="screen,projection">
+    <style type="text/css">
+</style>
+   <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>  
+  <div id="sidebar">
+        Monthly Archive
+        <p>
+        {% for month in months %}
+            {% ifchanged month.0 %} {{ month.0 }} <br /> {% endifchanged %}
+
+        {% endfor %}
+        </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+
+        <div class="conteiner">
+            <div class="col-md-6 portfolio-item">
+			{% for post in post_list %}
+                <a href="{% url 'index:post' post.id %}">
+                    <img src="{% static 'css/imagenes/'%}{{post.nombre_imagen}}">
+                </a>
+                <h3>
+                    <a href="{% url 'index:post' post.id %}">{{ post.title }}</a>
+                </h3>
+                <p>{{ post.body }}.</p>
+            </div>
+        {% endfor %}   
+		</div>
+        <!-- /.row -->
+
+      
+      
+                      `<!-- Next/Prev page links  -->
+        {% if not archive and posts.object_list and posts.paginator.num_pages > 1 %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href= "?page={{ posts.previous_page_number }}">Entradas mas nuevas &lt;&lt; </a>
+                {% endif %}
+
+                <span class="current">
+                    &nbsp;Pagina {{ posts.number }} de {{ posts.paginator.num_pages }}
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}"> &gt;&gt; Post mas viejitos</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+
+
+
+{% endblock %}

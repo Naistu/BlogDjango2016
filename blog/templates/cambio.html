@@ -1,0 +1,144 @@
+<html>
+    <head>
+    <title>Cambio de divisas</title>
+    <style>
+      .display{
+    width: 700px;
+    height: 170px;
+    display: inline-block;
+    margin-top: 45px;
+    margin-left: 250px;    
+
+    
+}
+
+.boton{
+    width: 100px;
+    height: 40px;
+    background-color: slategray;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 150px;
+
+}
+  .boton1{
+    width: 100px;
+    height: 40px;
+    background-color: slategray;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+
+}    
+.boton:hover {
+    background-color: #90A4AE;
+}
+  boton1:hover {
+    background-color: #90A4AE;
+}    
+
+.cmbox2 {
+    
+    color: #607D8B;
+    width: 240px;
+    height: 34px;
+    overflow: hidden;
+    margin: auto;
+    margin-top:40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+  margin-left: 10px;
+    
+}
+
+.input{
+    margin-top: 30px;
+    margin-left: 100px;
+    width: 340px;
+    height: 25px;
+    background-color: transparent;  
+    border-style: solid;  
+    border-width: 0px 0px 1px 0px;  
+    border-color: slategray; 
+    outline:0; 
+    
+}
+      </style>
+    <link rel="shortcut icon" href="../Imagenes/ns2.png" />
+    </head>
+        <body>
+        <div class="display" id="caja">
+            <p> </p>
+            
+            <select class="cmbox2" id="cmbox1">
+            <option value=0>Seleccione moneda</option>
+            <option value=0.067024>Peso Argentino</option>
+            <option value=1>Dolares</option>
+            <option value=0.276886>Reales</option>
+            <option value=0.001489>Chilenos</option>
+            <option value=1.12845>Euros</option>
+            <option value=0.030979>Uruguayos</option>
+            </select>
+                
+             To  
+            <select class="cmbox2" id="cmbox2">
+            <option value=0>Seleccione moneda</option>
+            <option value=0.067024>Peso Argentino</option>
+            <option value=1>Dolares</option>
+            <option value=0.276886>Reales</option>
+            <option value=0.001489>Chilenos</option>
+            <option value=1.12845>Euros</option>
+            <option value=0.030979>Uruguayos</option>
+            </select>       
+            <p>
+            <input type="text" class="input" id="num">
+            </p>
+            <p>
+            <button class="boton" id="calc" value="convertir" onclick="cal()">Convertir </button>
+            <button class="boton1" id="calc1" value="convertir" onclick="borre()">Borrar </button>    
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    </body>
+  
+    <script>
+      function cal(){
+    if(document.getElementById('cmbox1').value != 0 & document.getElementById('cmbox2').value != 0){
+        var m1 = document.getElementById('cmbox1').value;
+        var m2 = document.getElementById('cmbox2').value;
+        var tt = (m1* document.getElementById('num').value)/m2;
+        var total = eval(tt);
+        document.getElementById('num').value = total;
+        
+    }
+    
+}
+
+function borre(){
+    var nada="";
+    document.getElementById('num').value=nada;
+}
+  </script>>
+
+
+
+
+
+
+
+
+
+</html>
